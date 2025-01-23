@@ -1,27 +1,39 @@
 # Windows Sound Setter 🔊
 
-If you are a `windows` users, I'm sure that you've already known the way to increase or decrease your volume by moving cursor to the bottom right of your screen and look for that slider or somehow you can press on `volumn up/down` if you're using laptop.
-
-To make it controllable by key pressing, I created this small tool to show a GUI input to let us type in the volume value and it will set our system sound level to that inputted value.
-
 <img align="left" height="150" src="sample-gui.png" alt="Sample GUI"/> <br/><br/><br/><br/><br/><br/>
 
+---
 
-### Requirement
+I'm tired of moving my cursor to the bottom right of monitor to set the volume, so I created this small those that I can control it by key presses.
 
-- autohotkey v2.0 gotta be installed in pc. you can install by:
-
-```powershell
-winget install --id Lexikos.AutoHotkey
-```
+> [!IMPORTANT]
+> AutoHotKey has to be installed in computer!
+> 
+> you can install it using `winget`:
+>
+> ```powershell
+> winget install --id Lexikos.AutoHotkey
+> ```
 
 ### Start Using
 
-To start using, you can clone this repo or download this <a href="set-sound.ahk">set-sound.ahk</a> file and double click on it to run.
+You can run the following command in **powershell** and it will download the `ahk` script into startup folder of current user:
+
+```powershell
+$path = "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\volume-ctrl.ahk"; iwr "https://github.com/samithseu/win-set-sound/raw/main/set-sound.ahk" -OutFile $path; Invoke-Item $path
+```
+
+### Stop Using
+
+If you want to remove it, run the following command in **powershell** to delete:
+
+```powershell
+rm -Force "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\volume-ctrl.ahk"
+```
 
 ### Controls
 
-- Pressing `F8` to show the GUI
+- Pressing `F8` to show the GUI. If you manually input the volume over `26`, it will ask you first
 - Pressing `Alt + NumpadPlus` to volumn up by 2%
 - Pressing `Alt + NumpadSub` to volumn down by 2%
 
