@@ -8,7 +8,7 @@ F8:: { ; Pressing F8 to show the GUI input
     input_vol.Value := String(Round(SoundGetVolume(), 0))
   } else {
     ; check to see if the value is too high (too loud)
-    if (Float(input_vol.Value) > 25.00) {
+    if (Round(SoundGetVolume(), 0) <25 && Float(input_vol.Value) > 25.00) {
       result := MsgBox(input_vol.Value " really ?", "Warning!", "YesNo Default2 Icon?",)
       ; if alert is yes, go ahead but if not set to 10 only
       if (result != "Yes") {
